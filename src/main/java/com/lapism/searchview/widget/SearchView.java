@@ -28,6 +28,8 @@ import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
 import com.lapism.searchview.graphics.SearchAnimator;
 import com.lapism.searchview.graphics.SearchArrowDrawable;
+import com.lapism.searchview.internal.SearchLayout;
+import com.lapism.searchview.internal.SearchViewSavedState;
 
 import java.util.Objects;
 
@@ -102,8 +104,9 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
 
         setMicOrClearIcon(true);
 
+        setLogoHamburgerToLogoArrowWithAnimation(true);
+
         if (mVersion == Search.Version.TOOLBAR) {
-            setLogoHamburgerToLogoArrowWithAnimation(true);
             // todo SavedState, marginy kulate a barva divideru
             if (mOnOpenCloseListener != null) {
                 mOnOpenCloseListener.onOpen();
@@ -129,9 +132,9 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         hideKeyboard();
         setMicOrClearIcon(false);
 
-        if (mVersion == Search.Version.TOOLBAR) {
-            setLogoHamburgerToLogoArrowWithAnimation(false);
+        setLogoHamburgerToLogoArrowWithAnimation(false); // TODO
 
+        if (mVersion == Search.Version.TOOLBAR) {
             postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -182,12 +185,14 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
 
     // ---------------------------------------------------------------------------------------------
     @Override
-    void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SearchView, defStyleAttr, defStyleRes);
         int layoutResId = getLayout();
 
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(layoutResId, this, true);
+
+        // inflate()
 
         super.init(context, attrs, defStyleAttr, defStyleRes);
 
@@ -246,7 +251,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         if (a.hasValue(R.styleable.SearchView_search_clear_icon)) {
             setClearIcon(a.getDrawable(R.styleable.SearchView_search_clear_icon));
         } else {
-            setClearIcon(ContextCompat.getDrawable(mContext, R.drawable.search_ic_clear_black_24dp));
+            //setClearIcon(ContextCompat.getDrawable(mContext, R.drawable.search_ic_clear_black_24dp, mContext.getTheme()));
         }
 
         if (a.hasValue(R.styleable.SearchView_search_clear_color)) {
@@ -512,7 +517,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         SearchViewSavedState ss = new SearchViewSavedState(superState);
         ss.hasFocus = mSearchEditText.hasFocus();
         ss.shadow = mShadow;
-        ss.query = mQueryText != null ? mQueryText.toString() : null;
+        ss.query = mQueryText != null ? mQueryText.toString() : null; // TODO
         return ss;
     }
 

@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
 import com.lapism.searchview.database.SearchHistoryTable;
+import com.lapism.searchview.internal.SearchViewHolder;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

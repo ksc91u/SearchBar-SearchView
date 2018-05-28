@@ -2,6 +2,7 @@ package com.lapism.searchview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.view.View;
 
 import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
+import com.lapism.searchview.internal.SearchLayout;
 
 import java.util.Objects;
 
@@ -87,7 +89,7 @@ public class SearchBar extends SearchLayout {
 
     // ---------------------------------------------------------------------------------------------
     @Override
-    void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SearchBar, defStyleAttr, defStyleRes);
         int layoutResId = getLayout();
 
@@ -137,5 +139,16 @@ public class SearchBar extends SearchLayout {
             }
         }
     }
+
+    @Nullable
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        return super.onSaveInstanceState();
+    }
+
+
+
+
+    //TODO PARCELABLE SAVEDINSTANCE, PROJIT KNIHOVNU, CHEESESQ, LIGHT, CHECK, IKONKY
 
 }

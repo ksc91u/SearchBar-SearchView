@@ -1,4 +1,4 @@
-package com.lapism.searchview.widget;
+package com.lapism.searchview.internal;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -8,6 +8,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -28,22 +29,22 @@ import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
 import com.lapism.searchview.graphics.SearchArrowDrawable;
 
-
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public abstract class SearchLayout extends FrameLayout implements View.OnClickListener {
 
     @Nullable
-    CharSequence mQueryText = "";
-    Context mContext;
-    CardView mCardView;
-    ImageView mImageViewLogo;
-    ImageView mImageViewMic;
-    ImageView mImageViewClear;
-    ImageView mImageViewMenu;
-    SearchEditText mSearchEditText;
-    SearchArrowDrawable mSearchArrowDrawable;
-    Search.OnMicClickListener mOnMicClickListener;
-    Search.OnMenuClickListener mOnMenuClickListener;
-    Search.OnQueryTextListener mOnQueryTextListener;
+    public CharSequence mQueryText = "";
+    public Context mContext;
+    public CardView mCardView;
+    public ImageView mImageViewLogo;
+    public ImageView mImageViewMic;
+    public ImageView mImageViewClear;
+    public ImageView mImageViewMenu;
+    public SearchEditText mSearchEditText;
+    public SearchArrowDrawable mSearchArrowDrawable;
+    public Search.OnMicClickListener mOnMicClickListener;
+    public Search.OnMenuClickListener mOnMenuClickListener;
+    public Search.OnQueryTextListener mOnQueryTextListener;
     @Search.Logo
     private int mLogo;
     @Search.Shape
@@ -90,7 +91,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
     // ---------------------------------------------------------------------------------------------
     @CallSuper
-    void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mContext = context;
 
         mCardView = findViewById(R.id.search_cardView);
@@ -320,7 +321,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
     }
 
     // Menu
-    void setMenuIcon(@DrawableRes int resource) {
+    public void setMenuIcon(@DrawableRes int resource) {
         mImageViewMenu.setImageResource(resource);
     }
 
@@ -328,7 +329,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mImageViewMenu.setImageDrawable(drawable);
     }
 
-    void setMenuColor(@ColorInt int color) {
+    public void setMenuColor(@ColorInt int color) {
         mImageViewMenu.setColorFilter(color);
     }
 
@@ -345,11 +346,11 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         return mSearchEditText.getText();
     }
 
-    public void setText(CharSequence text) {
+    public void setText(@StringRes int text) {
         mSearchEditText.setText(text);
     }
 
-    public void setText(@StringRes int text) {
+    public void setText(CharSequence text) {
         mSearchEditText.setText(text);
     }
 
@@ -458,7 +459,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mCardView.setCardBackgroundColor(color);
     }
 
-    //@FloatRange(from = 0.5, to = 1.0)
+    // @FloatRange(from = 0.5, to = 1.0)
     // Others
     public boolean isOpen() {
         return getVisibility() == View.VISIBLE;
