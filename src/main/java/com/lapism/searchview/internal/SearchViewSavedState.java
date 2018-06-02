@@ -1,4 +1,4 @@
-package com.lapism.searchview.widget;
+package com.lapism.searchview.internal;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -7,9 +7,10 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.RestrictTo;
 import android.view.View;
 
-
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class SearchViewSavedState extends View.BaseSavedState {
 
     public static final Parcelable.Creator<SearchViewSavedState> CREATOR = new Parcelable.Creator<SearchViewSavedState>() {
@@ -28,8 +29,8 @@ public class SearchViewSavedState extends View.BaseSavedState {
 
     @Nullable
     public String query;
-    boolean hasFocus;
-    boolean shadow;
+    public boolean hasFocus;
+    public boolean shadow;
 
     private SearchViewSavedState(@NonNull Parcel source) {
         super(source);
@@ -45,7 +46,7 @@ public class SearchViewSavedState extends View.BaseSavedState {
         hasFocus = source.readInt() == 1;
     }
 
-    SearchViewSavedState(Parcelable superState) {
+    public SearchViewSavedState(Parcelable superState) {
         super(superState);
     }
 

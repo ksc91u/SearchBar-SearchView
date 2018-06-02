@@ -83,5 +83,4 @@ apply from: './bintray.gradle'
 
 // minifyEnabled true
 // shrinkResources true
-
 // https://services.gradle.org/distributions/

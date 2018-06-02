@@ -1,4 +1,4 @@
-package com.lapism.searchview.widget;
+package com.lapism.searchview.internal;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

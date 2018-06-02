@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
 import com.lapism.searchview.database.SearchHistoryTable;
+import com.lapism.searchview.internal.SearchViewHolder;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> implem
     @NonNull
     private final WeakReference<Context> mContext;
     @NonNull
-    private final List<SearchItem> mDatabase;
+    private List<SearchItem> mDatabase;
     private CharSequence mConstraint;
     private List<SearchItem> mSuggestions;
     private List<SearchItem> mResults;
@@ -42,13 +43,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> implem
     private int mIcon1Color, mIcon2Color, mTitleColor, mSubtitleColor, mTitleHighlightColor;
     private int mTextStyle = Typeface.NORMAL;
     private Typeface mTextFont = Typeface.DEFAULT;
+    private SearchHistoryTable mHistoryDatabase;
 
     // ---------------------------------------------------------------------------------------------
     public SearchAdapter(Context context) {
         mContext = new WeakReference<>(context);
-        SearchHistoryTable mHistoryDatabase = new SearchHistoryTable(context);
+        mHistoryDatabase = new SearchHistoryTable(context);
         mDatabase = mHistoryDatabase.getAllItems();
-        mResults = mDatabase;
+        mResults = mDatabase;// todo
         mSuggestions = new ArrayList<>();
         setTheme(Search.Theme.PLAY);
     }
@@ -225,6 +227,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> implem
                 if (!TextUtils.isEmpty(mConstraint)) {
                     List<SearchItem> history = new ArrayList<>();
                     List<SearchItem> results = new ArrayList<>();
+
+                    mDatabase.clear();
+                    mDatabase = mHistoryDatabase.getAllItems();
 
                     if (!mDatabase.isEmpty()) {
                         history.addAll(mDatabase);

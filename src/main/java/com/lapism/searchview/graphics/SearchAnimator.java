@@ -16,7 +16,7 @@ import android.view.animation.Animation;
 
 import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
-import com.lapism.searchview.widget.SearchEditText;
+import com.lapism.searchview.internal.SearchEditText;
 import com.lapism.searchview.widget.SearchView;
 
 
