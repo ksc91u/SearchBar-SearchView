@@ -4,15 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -32,6 +23,16 @@ import com.lapism.searchview.internal.SearchLayout;
 import com.lapism.searchview.internal.SearchViewSavedState;
 
 import java.util.Objects;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 public class SearchView extends SearchLayout implements Filter.FilterListener, CoordinatorLayout.AttachedBehavior {
@@ -428,6 +429,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         }
     }
 
+    // TODO BUG
     public void setLogoHamburgerToLogoArrowWithoutAnimation(boolean animation) {
         if (mSearchArrowDrawable != null) {
             if (animation) {
@@ -436,6 +438,10 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
                 mSearchArrowDrawable.setProgress(SearchArrowDrawable.STATE_HAMBURGER);
             }
         }
+    }
+
+    public void setRadius(float radius) {
+        mCardView.setRadius(radius);
     }
 
     // Listeners
@@ -498,19 +504,22 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
             mMenuItemCx = getCenterX(mMenuItemView);
         }
         ViewParent viewParent = getParent();
-        while (viewParent != null && viewParent instanceof View) {
-            View parent = (View) viewParent;
-            View view = parent.findViewById(menuItemId);
-            if (view != null) {
-                mMenuItemView = view;
-                mMenuItemCx = getCenterX(mMenuItemView);
-                break;
+        if (viewParent != null) {
+            while (viewParent instanceof View) {
+                View parent = (View) viewParent;
+                View view = parent.findViewById(menuItemId);
+                if (view != null) {
+                    mMenuItemView = view;
+                    mMenuItemCx = getCenterX(mMenuItemView);
+                    break;
+                }
+                viewParent = viewParent.getParent();
             }
-            viewParent = viewParent.getParent();
         }
     }
 
     // ---------------------------------------------------------------------------------------------
+    @Nullable
     @Override
     protected Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();

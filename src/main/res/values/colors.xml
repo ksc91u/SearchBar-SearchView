@@ -51,6 +51,7 @@
 
     <!-- Shadow -->
     <color name="search_shadow">#99000000</color>
+    <color name="search_inset_foreground">#44000000</color>
 
     <!-- Material -->
     <color name="search_md_white">#ffffff</color>

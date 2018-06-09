@@ -1,11 +1,12 @@
 package com.lapism.searchview.internal;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.RestrictTo;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+import androidx.appcompat.widget.AppCompatEditText;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class SearchEditText extends AppCompatEditText {

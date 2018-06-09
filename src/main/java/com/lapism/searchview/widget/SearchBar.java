@@ -3,8 +3,6 @@ package com.lapism.searchview.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,9 @@ import com.lapism.searchview.Search;
 import com.lapism.searchview.internal.SearchLayout;
 
 import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 
 public class SearchBar extends SearchLayout {
@@ -119,6 +120,18 @@ public class SearchBar extends SearchLayout {
     }
 
     // ---------------------------------------------------------------------------------------------
+    @Nullable
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        return super.onSaveInstanceState();
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        super.onRestoreInstanceState(state);
+    }
+
+    // ---------------------------------------------------------------------------------------------
     @Override
     public void onClick(View v) {
         if (Objects.equals(v, mImageViewLogo)) {
@@ -139,14 +152,5 @@ public class SearchBar extends SearchLayout {
             }
         }
     }
-
-    @Nullable
-    @Override
-    protected Parcelable onSaveInstanceState() {
-        return super.onSaveInstanceState();
-    }
-
-
-    //TODO PARCELABLE SAVEDINSTANCE, PROJIT KNIHOVNU, CHEESESQ, LIGHT, CHECK, IKONKY
 
 }

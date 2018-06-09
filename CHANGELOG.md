@@ -1,3 +1,8 @@
+**27.1.1.0.1**
+- fixed issue #
+- fixed issue #
+- small improvements
+
 **27.1.1.0.0**
 - small fixes
 - fixed proguard issue

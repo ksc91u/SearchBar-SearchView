@@ -3,7 +3,8 @@ package com.lapism.searchview.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 
 class SearchHistoryDatabase extends SQLiteOpenHelper {
