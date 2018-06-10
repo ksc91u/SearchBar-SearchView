@@ -148,11 +148,6 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
     }
 
     @Override
-    protected boolean isView() {
-        return true;
-    }
-
-    @Override
     protected int getLayout() {
         return R.layout.search_view;
     }

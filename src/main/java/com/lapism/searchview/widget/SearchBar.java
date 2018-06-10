@@ -67,11 +67,6 @@ public class SearchBar extends SearchLayout {
     }
 
     @Override
-    protected boolean isView() {
-        return false;
-    }
-
-    @Override
     protected int getLayout() {
         return R.layout.search_bar;
     }

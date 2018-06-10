@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.lapism.searchview.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;

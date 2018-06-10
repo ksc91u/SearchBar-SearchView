@@ -82,8 +82,6 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
     protected abstract void removeFocus();
 
-    protected abstract boolean isView();
-
     protected abstract int getLayout();
 
     protected abstract void open();
@@ -187,9 +185,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
                 mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
                 break;
             case Search.Shape.OVAL:
-                if (!isView()) {
-                    mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
-                }
+                mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
                 break;
         }
     }
@@ -347,11 +343,11 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         return mSearchEditText.getText();
     }
 
-    public void setText(@StringRes int text) {
+    public void setText(CharSequence text) {
         mSearchEditText.setText(text);
     }
 
-    public void setText(CharSequence text) {
+    public void setText(@StringRes int text) {
         mSearchEditText.setText(text);
     }
 
