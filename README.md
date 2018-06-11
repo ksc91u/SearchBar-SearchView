@@ -58,7 +58,6 @@ I would like to know if someone of you are using my library in your application.
 [Karaoke Online Sing & Record](https://play.google.com/store/apps/details?id=com.anhlt.karaokeonline)  
 [Playbuzz](https://play.google.com/store/apps/details?id=com.playbuzz.android.app)  
 [MovieTracker](https://play.google.com/store/apps/details?id=jacobs.yen.movietracker)  
-[MaxTorz](https://play.google.com/store/apps/details?id=com.maxxsol.maxtorz)  
 [RealTime Subscriber YouTube](https://play.google.com/store/apps/details?id=vulcanweblabs.realtimeyoutube)  
 [Lucidity - Lucid Dream Journal](https://play.google.com/store/apps/details?id=ch.b3nz.lucidity)  
 [Guide COC](https://play.google.com/store/apps/details?id=com.superguide.coc)
