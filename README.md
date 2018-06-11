@@ -5,8 +5,8 @@
  - History
  - Styling
 
-Material Design pattern:  
-https://material.io/guidelines/patterns/search.html
+Material Design SearchView:  
+https://material.io/design/navigation/search.html
 
 Versions history:  
 https://bintray.com/lapism/maven/searchview/view
