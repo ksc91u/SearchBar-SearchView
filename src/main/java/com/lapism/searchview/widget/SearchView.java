@@ -169,7 +169,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
                 }
                 SearchAnimator.revealClose(
                         mContext,
-                        mCardView,
+                        mMaterialCardView,
                         mMenuItemCx,
                         mAnimationDuration,
                         mSearchEditText,
@@ -395,13 +395,13 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
                 if (mMenuItem != null) {
                     getMenuItemPosition(mMenuItem.getItemId());
                 }
-                mCardView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                mMaterialCardView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
-                        mCardView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        mMaterialCardView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         SearchAnimator.revealOpen(
                                 mContext,
-                                mCardView,
+                                mMaterialCardView,
                                 mMenuItemCx,
                                 mAnimationDuration,
                                 mSearchEditText,
@@ -433,10 +433,6 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
                 mSearchArrowDrawable.setProgress(SearchArrowDrawable.STATE_HAMBURGER);
             }
         }
-    }
-
-    public void setRadius(float radius) {
-        mCardView.setRadius(radius);
     }
 
     // Listeners

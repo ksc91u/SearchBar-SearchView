@@ -118,11 +118,13 @@ public class SearchBar extends SearchLayout {
     @Nullable
     @Override
     protected Parcelable onSaveInstanceState() {
+        // todo dividier color saved instance bugy a adaptivni ikonky a pozadi a kulate rokhy a stroke jako mapuy
         return super.onSaveInstanceState();
     }
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
+        // todo
         super.onRestoreInstanceState(state);
     }
 

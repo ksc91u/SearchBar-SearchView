@@ -16,12 +16,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.lapism.searchview.R;
 import com.lapism.searchview.Search;
 import com.lapism.searchview.graphics.SearchArrowDrawable;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.ColorInt;
+import androidx.annotation.Dimension;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,7 +38,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
     @Nullable
     public CharSequence mQueryText = "";
     public Context mContext;
-    public CardView mCardView;
+    public MaterialCardView mMaterialCardView;
     public ImageView mImageViewLogo;
     public ImageView mImageViewMic;
     public ImageView mImageViewClear;
@@ -93,7 +95,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
     public void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mContext = context;
 
-        mCardView = findViewById(R.id.search_cardView);
+        mMaterialCardView = findViewById(R.id.search_materialCardView);
 
         mLinearLayout = findViewById(R.id.search_linearLayout);
 
@@ -179,13 +181,13 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
         switch (mShape) {
             case Search.Shape.CLASSIC:
-                mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_classic));
+                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_classic));
                 break;
             case Search.Shape.ROUNDED:
-                mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
+                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
                 break;
             case Search.Shape.OVAL:
-                mCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
+                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
                 break;
         }
     }
@@ -261,7 +263,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
                 params.setMargins(left, top, right, bottom);
 
-                mCardView.setLayoutParams(params);
+                mMaterialCardView.setLayoutParams(params);
                 break;
             case Search.VersionMargins.TOOLBAR:
                 left = mContext.getResources().getDimensionPixelSize(R.dimen.search_toolbar_margin_left_right);
@@ -271,7 +273,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
                 params.setMargins(left, top, right, bottom);
 
-                mCardView.setLayoutParams(params);
+                mMaterialCardView.setLayoutParams(params);
                 break;
             case Search.VersionMargins.MENU_ITEM:
                 left = mContext.getResources().getDimensionPixelSize(R.dimen.search_menu_item_margin);
@@ -281,7 +283,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
                 params.setMargins(left, top, right, bottom);
 
-                mCardView.setLayoutParams(params);
+                mMaterialCardView.setLayoutParams(params);
                 break;
         }
     }
@@ -444,16 +446,29 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mLinearLayout.setLayoutParams(params);
     }
 
+    // MaterialCardView
+    public void setStrokeWidth(@Dimension int strokeWidth){
+        mMaterialCardView.setStrokeWidth(strokeWidth);
+    }
+
+    public void setStrokeColor(@ColorInt int strokeColor){
+        mMaterialCardView.setStrokeColor(strokeColor);
+    }
+
+    public void setRadius(float radius) {
+        mMaterialCardView.setRadius(radius);
+    }
+
     // Overrides
     @Override
     public void setElevation(float elevation) {
-        mCardView.setMaxCardElevation(elevation);
-        mCardView.setCardElevation(elevation);
+        mMaterialCardView.setMaxCardElevation(elevation);
+        mMaterialCardView.setCardElevation(elevation);
     }
 
     @Override
     public void setBackgroundColor(@ColorInt int color) {
-        mCardView.setCardBackgroundColor(color);
+        mMaterialCardView.setCardBackgroundColor(color);
     }
 
     // @FloatRange(from = 0.5, to = 1.0)

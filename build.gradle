@@ -1,16 +1,9 @@
 apply plugin: 'com.android.library'
-//apply plugin: "com.jfrog.bintray"
-//apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 28
-
-    sourceSets {
-        main.res.srcDirs = [
-                'res',
-                'res-public'
-        ]
-    }
 
     defaultConfig {
         minSdkVersion 21
@@ -28,8 +21,10 @@ android {
     }
 
     /*sourceSets {
-    main.res.srcDirs 'res', 'res-public'
-    // main.res.srcDirs += 'src/main/res-public'
+        main.res.srcDirs = [
+                'res',
+                'res-public'
+        ]
     }*/
 
     /*
@@ -51,7 +46,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0-alpha3'
 }
 
-/*ext {
+ext {
     bintrayRepo = 'maven'
     bintrayName = 'searchview'
 
@@ -71,7 +66,7 @@ dependencies {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-}*/
+}
 
 //apply from: './install.gradle'
 //apply from: './bintray.gradle'

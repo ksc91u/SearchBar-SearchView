@@ -1,7 +1,6 @@
-**27.1.1.0.1**
-- fixed issue #
-- fixed issue #
-- small improvements
+**1.0.0-alpha3**
+- AndroidX support
+- bug fixes
 
 **27.1.1.0.0**
 - small fixes
