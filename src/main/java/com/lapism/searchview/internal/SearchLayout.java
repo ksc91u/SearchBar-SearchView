@@ -201,6 +201,21 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mTheme = theme;
 
         switch (mTheme) {
+            case Search.Theme.MAPS:
+                setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_play_background));
+                setDividerColor(ContextCompat.getColor(mContext, R.color.search_play_divider));
+                setLogoColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setMicColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setClearColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setMenuColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setHintColor(ContextCompat.getColor(mContext, R.color.search_play_hint));
+                setTextColor(ContextCompat.getColor(mContext, R.color.search_play_title));
+
+                setRadius(4); // asi
+                setStrokeColor(dadce0);
+                setStrokeWidth(1);// asi
+                setElevation(0);
+                break;
             case Search.Theme.PLAY:
                 setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_play_background));
                 setDividerColor(ContextCompat.getColor(mContext, R.color.search_play_divider));
