@@ -62,4 +62,6 @@
     <color name="search_md_grey_700">#616161</color>
     <color name="search_md_grey_850">#303030</color>
 
+    <color name="search_maps">#dadce0</color>
+
 </resources>

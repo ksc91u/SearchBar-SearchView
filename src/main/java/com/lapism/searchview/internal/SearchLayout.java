@@ -29,7 +29,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -181,13 +180,13 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
         switch (mShape) {
             case Search.Shape.CLASSIC:
-                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_classic));
+                setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_classic));
                 break;
             case Search.Shape.ROUNDED:
-                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
+                setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
                 break;
             case Search.Shape.OVAL:
-                mMaterialCardView.setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
+                setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_oval));
                 break;
         }
     }
@@ -201,21 +200,6 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mTheme = theme;
 
         switch (mTheme) {
-            case Search.Theme.MAPS:
-                setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_play_background));
-                setDividerColor(ContextCompat.getColor(mContext, R.color.search_play_divider));
-                setLogoColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
-                setMicColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
-                setClearColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
-                setMenuColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
-                setHintColor(ContextCompat.getColor(mContext, R.color.search_play_hint));
-                setTextColor(ContextCompat.getColor(mContext, R.color.search_play_title));
-
-                setRadius(4); // asi
-                setStrokeColor(dadce0);
-                setStrokeWidth(1);// asi
-                setElevation(0);
-                break;
             case Search.Theme.PLAY:
                 setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_play_background));
                 setDividerColor(ContextCompat.getColor(mContext, R.color.search_play_divider));
@@ -254,6 +238,21 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
                 setMenuColor(ContextCompat.getColor(mContext, R.color.search_dark_icon));
                 setHintColor(ContextCompat.getColor(mContext, R.color.search_dark_hint));
                 setTextColor(ContextCompat.getColor(mContext, R.color.search_dark_title));
+                break;
+            case Search.Theme.MAPS:
+                setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_play_background));
+                setDividerColor(ContextCompat.getColor(mContext, R.color.search_play_divider));
+                setLogoColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setMicColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setClearColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setMenuColor(ContextCompat.getColor(mContext, R.color.search_play_icon));
+                setHintColor(ContextCompat.getColor(mContext, R.color.search_play_hint));
+                setTextColor(ContextCompat.getColor(mContext, R.color.search_play_title));
+
+                setRadius(getResources().getDimensionPixelSize(R.dimen.search_shape_rounded));
+                setStrokeColor(ContextCompat.getColor(mContext, R.color.search_maps));
+                setStrokeWidth(1);
+                setElevation(0);
                 break;
         }
     }

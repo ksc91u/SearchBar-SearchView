@@ -50,13 +50,14 @@ public class Search {
         int OVAL = 2002;
     }
 
-    @IntDef({Theme.PLAY, Theme.GOOGLE, Theme.LIGHT, Theme.DARK})
+    @IntDef({Theme.PLAY, Theme.GOOGLE, Theme.LIGHT, Theme.DARK, Theme.MAPS})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Theme {
         int PLAY = 3000;
         int GOOGLE = 3001;
         int LIGHT = 3002;
         int DARK = 3003;
+        int MAPS = 3004;
     }
 
     @IntDef({VersionMargins.BAR, VersionMargins.TOOLBAR, VersionMargins.MENU_ITEM})
