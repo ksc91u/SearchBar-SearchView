@@ -64,7 +64,7 @@ I would like to know if someone of you are using my library in your application.
 
 ### Author
 
-* **Martin Lapis** - [GitHub](https://github.com/lapism)
+* **Martin Lapiš** - [GitHub](https://github.com/lapism)
 
 ### License
 
