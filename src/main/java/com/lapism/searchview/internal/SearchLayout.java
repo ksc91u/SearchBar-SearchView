@@ -355,6 +355,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mSearchEditText.setInputType(inputType);
     }
 
+    @Nullable
     public Editable getText() {
         return mSearchEditText.getText();
     }
@@ -419,6 +420,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
     }
 
     // Query
+    @Nullable
     public Editable getQuery() {
         return mSearchEditText.getText();
     }

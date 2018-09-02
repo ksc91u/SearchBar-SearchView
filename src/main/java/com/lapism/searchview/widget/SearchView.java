@@ -366,6 +366,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
     }
 
     // Adapter
+    @Nullable
     public RecyclerView.Adapter getAdapter() {
         return mRecyclerView.getAdapter();
     }
@@ -374,11 +375,11 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         mRecyclerView.setAdapter(adapter);
     }
 
-    public void addDivider(RecyclerView.ItemDecoration itemDecoration) {
+    public void addDivider(@NonNull RecyclerView.ItemDecoration itemDecoration) {
         mRecyclerView.addItemDecoration(itemDecoration);
     }
 
-    public void removeDivider(RecyclerView.ItemDecoration itemDecoration) {
+    public void removeDivider(@NonNull RecyclerView.ItemDecoration itemDecoration) {
         mRecyclerView.removeItemDecoration(itemDecoration);
     }
 

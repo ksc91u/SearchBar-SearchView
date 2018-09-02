@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import com.lapism.searchview.R;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 
 public class SearchItem implements Parcelable {
@@ -28,7 +29,9 @@ public class SearchItem implements Parcelable {
             return new SearchItem[size];
         }
     };
+    @Nullable
     private Drawable icon_1_drawable;
+    @Nullable
     private Drawable icon_2_drawable;
     private int icon_1_resource;
     private int icon_2_resource;
@@ -53,6 +56,7 @@ public class SearchItem implements Parcelable {
         this.subtitle = TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
     }
 
+    @Nullable
     public Drawable getIcon1Drawable() {
         return this.icon_1_drawable;
     }
@@ -61,6 +65,7 @@ public class SearchItem implements Parcelable {
         this.icon_1_drawable = icon_1_drawable;
     }
 
+    @Nullable
     public Drawable getIcon2Drawable() {
         return this.icon_2_drawable;
     }
