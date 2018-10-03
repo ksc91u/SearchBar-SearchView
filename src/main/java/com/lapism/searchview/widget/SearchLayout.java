@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -157,14 +158,14 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
 
         switch (mLogo) {
             case Search.Logo.GOOGLE:
-                mImageViewLogo.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.search_ic_g_color_24dp));
+                mImageViewLogo.setImageDrawable(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_g_color_24dp));
                 break;
             case Search.Logo.HAMBURGER_ARROW:
                 mSearchArrowDrawable = new SearchArrowDrawable(mContext);
                 mImageViewLogo.setImageDrawable(mSearchArrowDrawable);
                 break;
             case Search.Logo.ARROW:
-                mImageViewLogo.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.search_ic_arrow_back_black_24dp));
+                mImageViewLogo.setImageDrawable(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_arrow_back_black_24dp));
                 break;
         }
     }
@@ -470,9 +471,9 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         if (mOnMicClickListener != null) {
             mImageViewMic.setVisibility(View.VISIBLE);
             if (mTheme == Search.Theme.GOOGLE) {
-                mImageViewMic.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.search_ic_mic_color_24dp));
+                mImageViewMic.setImageDrawable(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_mic_color_24dp));
             } else {
-                mImageViewMic.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.search_ic_mic_black_24dp));
+                mImageViewMic.setImageDrawable(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_mic_black_24dp));
             }
         } else {
             mImageViewMic.setVisibility(View.GONE);
@@ -483,7 +484,7 @@ public abstract class SearchLayout extends FrameLayout implements View.OnClickLi
         mOnMenuClickListener = listener;
         if (mOnMenuClickListener != null) {
             mImageViewMenu.setVisibility(View.VISIBLE);
-            mImageViewMenu.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.search_ic_menu_black_24dp));
+            mImageViewMenu.setImageDrawable(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_menu_black_24dp));
         } else {
             mImageViewMenu.setVisibility(View.GONE);
         }

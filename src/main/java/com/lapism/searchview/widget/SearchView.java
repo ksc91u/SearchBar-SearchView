@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -246,7 +247,7 @@ public class SearchView extends SearchLayout implements Filter.FilterListener, C
         if (a.hasValue(R.styleable.SearchView_search_clear_icon)) {
             setClearIcon(a.getDrawable(R.styleable.SearchView_search_clear_icon));
         } else {
-            setClearIcon(ContextCompat.getDrawable(mContext, R.drawable.search_ic_clear_black_24dp));
+            setClearIcon(AppCompatResources.getDrawable(mContext, R.drawable.search_ic_clear_black_24dp));
         }
 
         if (a.hasValue(R.styleable.SearchView_search_clear_color)) {
